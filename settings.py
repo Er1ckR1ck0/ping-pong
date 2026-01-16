@@ -1,5 +1,5 @@
 import os
-from pygame import event, QUIT, K_w, K_s, K_UP, K_DOWN
+from pygame import event, QUIT, K_w, K_s, K_UP, K_DOWN, display
 from interface import Interface
 
 # music
@@ -13,6 +13,8 @@ MUSIC_PATH = "./music"
 # window_set
 PARAMS_WINDOW = (500, 500)
 WIDTH, HEIGHT = PARAMS_WINDOW
+WINDOW = display.set_mode(PARAMS_WINDOW)
+WINDOW_RECT = WINDOW.get_rect() 
 
 # colors
 BLACK = (0, 0, 0)
