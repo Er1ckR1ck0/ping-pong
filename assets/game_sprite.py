@@ -10,11 +10,12 @@ class GameSprite(Sprite):
         x: int = 20,
         y: int = 20,
         w: int = 100,
-        h: int = 100,
+        h: int = 300,
         speed: int = 10,
         color: tuple = WHITE,
         border_color: tuple = BLACK,
     ):
+        super().__init__()
         self.rect = Rect(x, y, w, h)
         self.speed = speed
         self.color = color

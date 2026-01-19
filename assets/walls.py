@@ -3,11 +3,14 @@ from typing import List
 from pygame import key, Surface
 
 from assets.game_sprite import GameSprite
-from settings import keybinds_dict, HEIGHT, WIDTH
+from settings import keybinds_dict, window_rect, P1_POS ,P2_POS
 
 class Walls(GameSprite):
     def __init__(self, x, y):
-        super().__init__(x, y, 10, 30)
+        super().__init__(x, y, 10, 100, 14)
+        
+    def reset(self, POSITION):
+        self.rect.center = POSITION
         
     def update(self, window: Surface, keybinds: List[str]):
         super().update(window=window)
@@ -18,8 +21,8 @@ class Walls(GameSprite):
         
         if key_pressed[keybinds_dict.get(up)] and self.rect.top > 0:
             self.rect.y -= self.speed
-        if key_pressed[keybinds_dict.get(down)] and self.rect.bottom < HEIGHT:
+        if key_pressed[keybinds_dict.get(down)] and self.rect.bottom < window_rect.bottom:
             self.rect.y += self.speed
             
-P1 = Walls(20, HEIGHT//2)
-P2 = Walls(WIDTH-20, HEIGHT//2)
+P1 = Walls(P1_POS[0], P1_POS[1])
+P2 = Walls(P2_POS[0], P2_POS[1])

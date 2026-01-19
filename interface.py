@@ -1,5 +1,5 @@
 from pygame import font, Surface
-from settings import WIDTH, HEIGHT
+from settings import window_rect
 
 font.init()
 
@@ -27,4 +27,4 @@ class Interface:
         cls.text_p2 = cls.h1.render(str(cls.counter_p2), True, (255, 255, 255))
 
         window.blit(cls.text_p1, (20, 20))
-        window.blit(cls.text_p2, (WIDTH - 20, 20))
+        window.blit(cls.text_p2, (window_rect.width - cls.text_p2.get_rect().width - 30, 20))
